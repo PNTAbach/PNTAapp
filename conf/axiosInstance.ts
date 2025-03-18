@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosError, AxiosResponse } from "axios";
 import * as SecureStore from "expo-secure-store";
 
-const url: string = "https://pretty-lights-write.loca.lt/";
+const url: string = "https://honest-aliens-return.loca.lt/";
 
 const createAxiosClient = (token: string | null = null): AxiosInstance => {
   const headers = token
