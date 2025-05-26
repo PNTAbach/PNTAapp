@@ -68,9 +68,28 @@ export const UserProvider = ({ children }: Props) => {
       await SecureStore.setItemAsync("token", response.token);
       setToken(response.token);
       setError(null);
-      console.log("hello test register USER");
-    } catch (e) {
-      console.error("Registration Failed" + e);
+      console.log("Registered successfully");
+    } catch (error: any) {
+      console.log(
+        "Full error object:",
+        JSON.stringify(error, Object.getOwnPropertyNames(error), 2)
+      );
+
+      if (error.response) {
+        console.error("Backend response:", error.response.data);
+        Alert.alert("Register Error", JSON.stringify(error.response.data));
+      } else if (error.request) {
+        console.error("No response received:", error.request);
+        Alert.alert(
+          "Register Error",
+          "No response from server. Check network or API URL."
+        );
+      } else {
+        console.error("Unknown error:", error.message);
+        Alert.alert("Register Error", error.message);
+      }
+
+      throw error;
     }
   };
 

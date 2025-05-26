@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.PNTAapp"
     },
     "web": {
       "bundler": "metro",
@@ -34,6 +35,9 @@
         }
       ]
     ],
+    "updates": {
+      "enabled": false
+    },
     "experiments": {
       "typedRoutes": true
     }
