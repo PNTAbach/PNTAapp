@@ -56,8 +56,8 @@ const List = ({ venues, onPress }: IList) => {
                             <View style={styles.textContainer}>
                                 <Text style={styles.name}>{venue.name}</Text>
                                 <Text style={styles.address}>
-                                    {venue.locations[0].city},
-                                    {' ' + venue.locations[0].country}
+                                    {venue.locations?.[0]?.city ?? "Unknown"},
+                                    {' ' + venue.locations?.[0]?.country }
                                 </Text>
                                 {myMap.get(venue.venueId) ? (
                                     <Text style={styles.hours}>
@@ -93,7 +93,6 @@ const List = ({ venues, onPress }: IList) => {
 };
 
 export default List;
-
 const styles = StyleSheet.create({
     listPage: {
         backgroundColor: '#363636',
